@@ -31,7 +31,24 @@ movieTitles()
             ul.appendChild(li)
             ul.addEventListener('click', (e)=>{
                 document.getElementById('title').textContent = (e.target.textContent)
+                title.forEach((item)=>{
+                    
+                    if (e.target.textContent===item.title){
+                        document.getElementById('runtime').textContent=item.runtime
+                        document.getElementById('film-info').textContent = item.description
+                        document.getElementById('showtime').textContent=item.showtime
+                        document.getElementById('ticket-num').textContent=item.capacity
+
+                }
+                    
                 
+            
+            })
+            
+
+
+
+
                  })
           }))
       }
@@ -83,11 +100,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const preview=document.getElementById('poster')
     preview.src=childMovie.poster;
 
-    document.getElementById('title').textContent=childMovie.title;
-    document.getElementById('runtime').textContent=`${childMovie.runtime} minutes`;
-    document.getElementById('film-info').textContent=childMovie.description;
-    document.getElementById('showtime').textContent=childMovie.showtime;
-    document.getElementById('ticket-num').textContent=childMovie.capacity -childMovie.tickets_sold;
   }
 const btn =document.getElementById('buy-ticket');
 btn.addEventListener('click',function(e){
